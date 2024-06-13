@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title th:text="${'Błąd' + status}">Błąd</title>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+</head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+
+    <main>
+        <h1 th:text="${'Błąd' + status}">Błąd</h1>
+        <p>
+            Nastąpił błąd przy wyświetlaniu żądanej strony<span th:text="${path}"></span>.
+            <br><span th:text="${'Powód: ' + error}"></span>
+            <br><br><a href="/"><button type="button">Strona powitalna</button></a>
+            <a href="/entries" sec:authorize="isAuthenticated()"><button type="button">Galeria</button></a>
+        </p>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Edytuj wpis</title>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+</head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+
+    <main>
+        <h1>Edytuj wpis</h1>
+        <form th:action="@{/entries/edit}" th:object="${information}" method="POST">
+            <input type="hidden" th:field="*{id}" th:value="${informationId}">
+
+            <div>
+                <label for="title">Tytuł:</label>
+                <br><input type="text" id="title" th:field="*{title}" required>
+                <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Problem z tytułem</div>
+            </div>
+            <div>
+                <label for="content">Treść:</label>
+                <br><textarea id="content" th:field="*{content}" required></textarea>
+                <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}">Problem z treścią</div>
+            </div>
+            <div>
+                <label for="category">Kategoria:</label>
+                <br>
+                <select id="category" th:field="*{categoryId}" required>
+                    <option value="null">(brak)</option>
+                    <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.name}"></option>
+                </select>
+                <div th:if="${#fields.hasErrors('categoryId')}" th:errors="*{categoryId}">Problem z kategorią</div>
+            </div>
+
+            <br><button type="submit">Zapisz</button>
+        </form>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

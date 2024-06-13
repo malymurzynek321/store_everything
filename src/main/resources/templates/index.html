@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Strona główna</title>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+</head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+
+    <main>
+        <h1>Witamy!</h1>
+
+        <h2>Wymagania</h2>
+        <div>
+            Szczegółowe funkcjonalności, full user (12 z 19 p.):
+            <ul>
+                <li>✅ Dodanie/edycja/usunięcie przez siebie zebranych informacji – 5p.</li>
+                <li>✅ Walidacja formularza – 1p.</li>
+                <li>✅ Edycja na danych bieżących – 1p.</li>
+                <li>✅ Dodanie nowej kategorii – 1p.</li>
+                <li>✅ Wyświetlenie udostępnionych przez innych informacji – 2p.</li>
+                <li>✅ Udostępnienie: ze wskazaniem na konkretnego użytkownika lub w linku – 1p.</li>
+                <li>✅ Wyświetlanie „swoich” informacji: sortowanie w obu kierunkach (data, kategoria, alfabetycznie) – 2p.</li>
+                <li>Zapamiętanie kierunków i kryteriów sortowania – 1p.</li>
+                <li>Filtrowanie według daty (od aktualnej) i kategorii (od najbardziej popularnej) – 2p.</li>
+                <li>✅ Logowanie – 1p.</li>
+                <li>Zapis do bazy danych dopiero przy wylogowaniu/wygaśnięciu sesji – 2p.</li>
+                <li>[DLA 4-OSOBOWYCH] Informacje z datą przypomnienia zgodną z datą bieżącą powinny być wyświetlane w specjalnym widoku, który pojawia się zaraz po zalogowaniu</li>
+                <li>[DLA 4-OSOBOWYCH] Jeśli brak jest takich informacji albo ich daty przypomnienia są różne od daty bieżącej, ten widok nie jest prezentowany</li>
+            </ul>
+        </div>
+        <div>
+            Szczegółowe funkcjonalności, niezalogowany (4 z 4 p.):
+            <ul>
+                <li>✅ Rejestracja – 1p.</li>
+                <li>✅ Walidacja formularza – 1p.</li>
+                <li>✅ Strona powitalna – 1p.</li>
+                <li>✅ Wyświetlenie informacji z udostępnionego linku – 1p.</li>
+            </ul>
+        </div>
+        <div>
+            Szczegółowe funkcjonalności, admin (2 z 2 p.):
+            <ul>
+                <li>✅ Wyświetlenie listy użytkowników – 1p.</li>
+                <li>✅ Zarządzanie rolami – 1p.</li>
+            </ul>
+        </div>
+        <div>
+            Elementy techniczne (14/15 z 25 p.):
+            <ul>
+                <li>✅ Kontrolery – 2p.</li>
+                <li>Baza danych (co najmniej 2 tabele z relacją) – 5p.</li>
+                <li>✅ Widoki: formularze z walidacją (3 różne elementy), 5 różnych znaczników Thymeleaf – 3p. + 2p.</li>
+                <li>✅ Sesja – 2p.</li>
+                <li>🟨 Ciasteczka – 1p.</li>
+                <li>✅ Spring Security – 5p. (z bazą danych), <s>3p. (w pamięci)</s></li>
+            </ul>
+        </div>
+        <div>
+            Dodatkowe elementy:
+            <ul>
+                <li>Dokumentacja z odniesieniem do wszystkich elementów punktowanych</li>
+                <li>Wygląd – obowiązkowo WCAG2.1</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

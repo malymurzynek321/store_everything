@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Nowa kategoria</title>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+</head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+
+    <main>
+        <h1>Nowa kategoria</h1>
+        <form th:action="@{/categories/create}" method="POST">
+            <div>
+                <label for="name">Nazwa:</label>
+                <br><input type="text" id="name" name="name" required />
+            </div>
+            <br><button type="submit">Zapisz</button>
+        </form>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

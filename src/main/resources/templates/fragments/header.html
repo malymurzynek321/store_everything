@@ -1,0 +1,12 @@
+<header th:fragment="header" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <div id="headerLogo"><a href="/" th:href="@{/}"><span class="material-symbols-outlined">note_stack</span> StoreEverything</a></div>
+
+    <div sec:authorize="!isAuthenticated()"><a href="/register"><span class="material-symbols-outlined">how_to_reg</span> Rejestracja</a></div>
+    <div sec:authorize="isAuthenticated()"><a href="/entries"><span class="material-symbols-outlined">developer_guide</span> Galeria</a></div>
+    <div sec:authorize="hasRole('ROLE_ADMIN')"><a href="/admin"><span class="material-symbols-outlined">admin_panel_settings</span> Panel administratora</a></div>
+
+    <div id="headerButtons">
+        <div sec:authorize="!isAuthenticated()"><a href="/login"><span class="material-symbols-outlined">login</span> Zaloguj się</a></div>
+        <div sec:authorize="isAuthenticated()"><a th:href="@{'/logout?_csrf=' + ${_csrf.token}}"><span class="material-symbols-outlined">logout</span> Wyloguj się</a></div>
+    </div>
+</header>

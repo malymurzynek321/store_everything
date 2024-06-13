@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Rejestracja</title>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+</head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+
+    <main>
+        <h1>Rejestracja</h1>
+        <form th:action="@{/register}" th:object="${user}" method="post">
+            <div>
+                <label for="name">Imię:</label>
+                <br><input type="text" id="name" th:field="*{name}" />
+                <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Problem z imieniem</div>
+            </div>
+            <div>
+                <label for="surname">Nazwisko:</label>
+                <br><input type="text" id="surname" th:field="*{surname}" />
+                <div th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Problem z nazwiskiem</div>
+            </div>
+            <div>
+                <label for="username">Login:</label>
+                <br><input type="text" id="username" th:field="*{username}" />
+                <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Problem z loginem</div>
+            </div>
+            <div>
+                <label for="password">Hasło:</label>
+                <br><input type="password" id="password" th:field="*{password}" />
+                <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Problem z hasłem</div>
+            </div>
+            <div>
+                <label for="age">Wiek:</label>
+                <br><input type="number" id="age" th:field="*{age}" />
+                <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Problem z wiekiem</div>
+            </div>
+            <div>
+                <button type="submit">Zarejestruj się</button>
+            </div>
+        </form>
+        <div th:if="${successMessage}" th:text="${successMessage}"></div>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

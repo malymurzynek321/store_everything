@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Logowanie</title>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+</head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+
+    <main>
+        <h1>Logowanie</h1>
+        <form th:action="@{/login}" th:object="${user}" method="post">
+            <div>
+                <label for="username">Login:</label>
+                <br><input type="text" id="username" name="username" />
+                <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Problem z loginem</div>
+            </div>
+            <div>
+                <label for="password">Hasło:</label>
+                <br><input type="password" id="password" name="password" />
+                <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Problem z hasłem</div>
+            </div>
+            <div>
+                <button type="submit">Zaloguj się</button>
+            </div>
+
+            <div th:if="${param.error}">
+                <p>Błąd logowania: Nieprawidłowe dane logowania.</p>
+            </div>
+        </form>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>
